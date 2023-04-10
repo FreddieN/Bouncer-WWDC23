@@ -286,10 +286,21 @@ public class ViewControllerG6: UIViewController {
             let tubeMovement = SCNAction.move(to: SCNVector3(x:Float(l*dcos(theta)),y:Float(y_1(l*dcos(theta))),z:0), duration: TimeInterval(tubeMovementTime));
             var animSequence = [initBall,tubeMovement]
            
-           
+            let t_z = quadraticFormulaHigherOrLowerResult(
+                a:-0.5*g, 
+                b:v_yp,
+                c:(-Double(y_3(d_1+d_2))),
+                d:"lowest")
+            let t_z1 = quadraticFormulaHigherOrLowerResult(
+                a:-0.5*g, 
+                b:v_yp ,
+                c:(-Double(y_3(d_1+d_2+0.2))),
+                d:"lowest")
+            let t=t_z1-t_z
+            
             for i in stride(from: d_1+d_2, to: (d_3)+d_1+d_2, by: 0.2) {
                
-                let am1 = SCNAction.move(to: SCNVector3(x: Float(i), y: Float(y_3(i)), z: 0), duration: 0.1)
+                let am1 = SCNAction.move(to: SCNVector3(x: Float(i), y: Float(y_3(i)), z: 0), duration: t)
                 animSequence.append(am1)
             }
             

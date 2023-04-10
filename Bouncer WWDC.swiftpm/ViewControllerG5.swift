@@ -44,7 +44,8 @@ public class ViewControllerG5: UIViewController {
     var e: Double = 0.8239
     var h_2: Double = 0.75
     var g: Double = 9.81
-    
+    var loaded: Bool = false
+
     func dtan(_ degree: Any) -> Double {
         return tan(deg2rad(Double(theta)))
     }
@@ -60,12 +61,17 @@ public class ViewControllerG5: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         let h_1 = l*dsin(theta)
+        if(!self.loaded) {
+            self.view = arView           // IMPORTANT
+            arView.scene = SCNScene()
+            arView.autoenablesDefaultLighting = true
+        }
+        self.loaded = true
         
-        self.view = arView           // IMPORTANT
-        arView.scene = SCNScene()
         let scene = arView.scene
-        arView.autoenablesDefaultLighting = true
-        // anchor is 2 meters away
+        arView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
         self.anchor = ARAnchor(name: "special", 
                                transform: .init([1, 0, 0, 0], 
                                                 [0, 1, 0, 0], 
@@ -242,9 +248,21 @@ public class ViewControllerG5: UIViewController {
         //}
         
         
+        let t_z = quadraticFormulaHigherOrLowerResult(
+            a:-0.5*g, 
+            b:v_yp,
+            c:(-Double(y_3(d_1+d_2))),
+            d:"lowest")
+        let t_z1 = quadraticFormulaHigherOrLowerResult(
+            a:-0.5*g, 
+            b:v_yp ,
+            c:(-Double(y_3(d_1+d_2+0.2))),
+            d:"lowest")
+        let t=t_z1-t_z
+        print(t)
         for i in stride(from: d_1+d_2, to: (d_3)+d_1+d_2, by: 0.2) {
             
-            let am1 = SCNAction.move(to: SCNVector3(x: Float(i), y: Float(y_3(i)), z: 0), duration: 0.1)
+            let am1 = SCNAction.move(to: SCNVector3(x: Float(i), y: Float(y_3(i)), z: 0), duration: t)
             animSequence.append(am1)
         }
         
