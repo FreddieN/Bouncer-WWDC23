@@ -20,11 +20,9 @@ struct TiltView: View {
                         Text("""
 In this game, you will apply what you have just learnt about the effects of the different parameters on the experiment.
 
-A red 'objective tube' will appear between you and the maximum distance reachable by the experiment setup with the given parameters. Your iPad tilt will match the angle of the tube. Tilt your iPad in order to work out the right angle for the given distance. You must hold at that angle for a short moment in order to score a point.
+A red 'objective tube' will appear between you and the maximum distance reachable by the experiment setup with the given parameters. Your iPad tilt will match the angle of the tube. Tilt your iPad in order to work out the right angle for the given distance. You must hold at that angle for a short moment in order to score a point. Each objective is timed and as you score this time will decrease making the game harder!
 
-Each objective is timed and as you score this time will decrease making the game harder!
-
-Make sure you are in a clear space ideally with a floor in front of you with a distance of 4 metres. The tube will spawn directly in front of the iPad. Press 'Start Game' to begin
+Make sure you are in a clear space ideally with a floor in front of you with a distance of 4 metres and that you are holding your iPad in landscape orientation. The tube will spawn directly in front of the iPad. Press 'Start Game' to begin
 """).padding(.horizontal,40).padding(.top, 10)
                         Image("tiltbounce").resizable()
                             .aspectRatio(contentMode: .fit).frame(maxHeight:300)
