@@ -53,7 +53,7 @@ public class ViewControllerG6: UIViewController {
     var lastCorrect: Double = Date().timeIntervalSince1970
     var timeInterval: Double = 10.0
     var score: Int32 = 0
-    var tubeObjectiveDistance = Double.random(in: 2.0..<4.0)
+    var tubeObjectiveDistance: Double = Double.random(in: Double(2.0)..<Double(4.0))
     var correctTickStart: Double = -1
     var gameOver: Bool = false
     
@@ -468,7 +468,7 @@ public class ViewControllerG6: UIViewController {
                 //            print(timeNow, correctTickStart, timeCorrect)
                 if(timeCorrect > 0.2 && correctTickStart > 0) {
                     oldTubeObjectiveDistance = tubeObjectiveDistance
-                    tubeObjectiveDistance = Double.random(in: 0.1..<4.0)
+                    tubeObjectiveDistance = Double.random(in: Double(0.1)..<Double(4.0))
                     
                     score += 1
                     correctTickStart = -1
