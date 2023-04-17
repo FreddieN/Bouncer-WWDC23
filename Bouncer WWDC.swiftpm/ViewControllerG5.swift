@@ -258,8 +258,10 @@ public class ViewControllerG5: UIViewController {
             b:v_yp ,
             c:(-Double(y_3(d_1+d_2+0.2))),
             d:"lowest")
-        let t=t_z1-t_z
-//        print(t)
+        var t=t_z1-t_z
+        if(t<0) {
+            t = 0.2
+        }
         for i in stride(from: d_1+d_2, to: (d_3)+d_1+d_2, by: 0.2) {
             
             let am1 = SCNAction.move(to: SCNVector3(x: Float(i), y: Float(y_3(i)), z: 0), duration: t)

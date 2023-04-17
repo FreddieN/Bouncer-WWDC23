@@ -296,7 +296,10 @@ public class ViewControllerG6: UIViewController {
                 b:v_yp ,
                 c:(-Double(y_3(d_1+d_2+0.2))),
                 d:"lowest")
-            let t=t_z1-t_z
+            var t=t_z1-t_z
+            if(t<0) {
+                t = 0.2
+            }
             
             for i in stride(from: d_1+d_2, to: (d_3)+d_1+d_2, by: 0.2) {
                
