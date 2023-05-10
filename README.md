@@ -1,5 +1,5 @@
 # Bouncer-WWDC23
-This project was not selected for the challenge however it did receive a great mark in the coursework! 
+This project was not selected for the challenge however it did receive a great mark in the coursework (which you can see [here](https://fr3ddie.me/article/bouncer))! 
 
 My Swift Student Challenge app project is inspired by an experiment I completed at university demonstrating solid mechanics. Part of the technical report is around ‘verifying our calculations’ and I thought a unique way to check the calculations would be modelling them in AR using Swift Playgrounds. The first page of the activity shows the finished result of this when the experiment was performed. Thanks to ARKit and SceneKit, the models are to scale, and the AR model was precise and accurately predicted the correct distance. 
 
